@@ -7,23 +7,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form>
+    <form novalidate>
       <div>
-        <label for=""></label>
-        <input type="email" />
+        <label for="email">Enderenço electrónico: </label>
+        <input type="email" id="email" nome="email" required/>
       </div>
       <div>
-        <label for=""></label>
-        <input type="text" />
+        <label for="país">País: </label>
+        <input type="text" id="país" nome="país" required />
       </div>
-      <div><label for=""></label><input type="text" /></div>
+      <div><label for="cp">Código Postal: </label>
+        <input type="text" id="cp" nome="cp" required/></div>
       <div>
-        <label for=""></label>
-        <input type="password" />
+        <label for="pass">Introduza a sua palavra-passe: </label>
+        <input type="password" id="pass" nome="pass" required/>
       </div>
       <div>
-        <label for=""></label>
-        <input type="password" />
+        <label for="passconfirm">Confirme a sua palavra-passe: </label>
+        <input type="password" id="passconfirm" nome="passconfirm" required/>
       </div>
       <button type="submit">Submeter</button>
     </form>
