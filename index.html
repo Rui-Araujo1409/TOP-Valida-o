@@ -11,25 +11,29 @@
       <div>
         <label for="email">Enderenço electrónico: </label>
         <input type="email" id="email" nome="email" required/>
-        <span id="erroemail"></span>
       </div>
       <div>
         <label for="país">País: </label>
         <input type="text" id="país" nome="país" required />
-        <span id="erropaís"></span>
       </div>
       <div><label for="cp">Código Postal: </label>
         <input type="text" id="cp" nome="cp" required/></div>
-        <span id="errocp"></span>
       <div>
         <label for="pass">Introduza a sua palavra-passe: </label>
-        <input type="password" id="pass" nome="pass" required/>
+        <input type="password" id="pass" nome="pass" minlength="8" required/>
       </div>
       <div>
-        <label for="passconfirm">Confirme a sua palavra-passe: </label>
-        <input type="password" id="passconfirm" nome="passconfirm" required/>
+        <label for="passConfirm">Confirme a sua palavra-passe: </label>
+        <input type="password" id="passConfirm" nome="passConfirm" required/>
       </div>
       <button type="submit">Submeter</button>
+      <div>
+       <p id="errosEmail"></p>
+       <p id="erroPaís"></p>
+       <p id="erroCP"></p>
+       <p id="erroPass"></p>
+       <p id="erroPassConfirm"></p>
+       </div>
     </form>
     <script src="script.js"></script>
   </body>
