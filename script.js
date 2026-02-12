@@ -46,10 +46,7 @@ formulário.addEventListener("submit", (e) => {
         erroPassConfirm.textContent = "As palavras-passe não são iguais.";
         e.preventDefault();
     } else {
-        alert("Certo!");
+        
     }
 })
-
-
-console.log(pass);
 
