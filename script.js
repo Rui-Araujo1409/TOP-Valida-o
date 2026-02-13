@@ -13,47 +13,63 @@ const erroPass = document.querySelector("#erroPass");
 const erroPassConfirm = document.querySelector("#erroPassConfirm");
 
 email.addEventListener("input", (e) => {
-    email.validity.valid ? errosEmail.textContent = "" : mostrarErros();
+    email.validity.valid ? errosEmail.textContent = "" : mostrarErroEmail();
 });
 
 país.addEventListener("input", (e) => {
-    país.validity.valid ? erroPaís.textContent = "" : mostrarErros();
+    país.validity.valid ? erroPaís.textContent = "" : mostrarErroPaís();
 });
 
 cp.addEventListener("input", (e) => {
-    cp.validity.valid ? erroCP.textContent = "" : mostrarErros();
+    cp.validity.valid ? erroCP.textContent = "" : mostarErroCP();
 });
 
 pass.addEventListener("input", (e) => {
-    /*   if(pass.validity.valueMissing) {
-          erroPass.textContent = "Tem de inserir uma palavra-passe.";
-      } else if(pass.validity.tooShort) {
-          erroPass.textContent = "A palavra-passe tem de ter 8 caracteres no mínimo.";
-      } else {
-          erroPass.textContent = "";
-      } */
-})
-
+      pass.validity.valid ? erroPass.textContent = "" : mostrarErroPass();
+      }
+)
 
 formulário.addEventListener("submit", (e) => {
-    /*  if(pass.value !== passConfirm.value) {
+     if(pass.value !== passConfirm.value) {
          erroPassConfirm.textContent = "As palavras-passe não são iguais.";
          e.preventDefault();
-     } else if() {
-         
-     } */
+     } else if(!email.validity.valid) {
+        mostrarErroEmail();
+        e.preventDefault();
+     } else if(!país.validity.valid) {
+        mostrarErroPaís();
+        e.preventDefault();
+     } else if(!cp.validity.valid) {
+        mostarErroCP();
+        e.preventDefault();
+     } else if(!pass.validity.valid || !passConfirm.validity.valid) {
+        mostrarErroPass();
+        e.preventDefault();
+     }
 })
 
-
-const mostrarErros = () => {
+const mostrarErroEmail = () => {
     if (email.validity.valueMissing) {
         errosEmail.textContent = "Tem de inserir um enderenço electrónico."
-    } else if (email.validity.typeMismatch) {
+    } else if(email.validity.typeMismatch) {
         errosEmail.textContent = "O enderenço electrónico inserido não é válido.";
-    } else if (país.validity.valueMissing) {
-        erroPaís.textContent = "Tem de inserir um país.";
-    } else if (cp.validity.valueMissing) {
-        erroCP.textContent = "Tem de inserir um código postal";
+    } 
+}
+
+const mostrarErroPaís = () => {
+    erroPaís.textContent="Tem de inserir um país.";
+}
+
+const mostarErroCP = () => {
+    erroCP.textContent = "Tem de inserir um código postal.";
+}
+
+const mostrarErroPass = () => {
+    if(pass.validity.tooShort) {
+        erroPass.textContent = "A palavra-passe tem de ter 8 caracteres pelo menos.";
+    } else if(pass.validity.valueMissing) {
+        erroPass.textContent = "Tem de inserir uma palavra-passe.";
     }
 }
+
 
