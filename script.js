@@ -13,40 +13,47 @@ const erroPass = document.querySelector("#erroPass");
 const erroPassConfirm = document.querySelector("#erroPassConfirm");
 
 email.addEventListener("input", (e) => {
-    if(email.validity.valueMissing) {
-        errosEmail.textContent = "Tem de inserir um enderenço electrónico."
-    } else if(email.validity.typeMismatch) {
-        errosEmail.textContent = "O enderenço electrónico inserido não é válido.";
-    } else {
-        errosEmail.textContent = "";
-    }
+    email.validity.valid ? errosEmail.textContent = "" : mostrarErros();
 });
 
 país.addEventListener("input", (e) => {
-    país.validity.valueMissing ? erroPaís.textContent = "Tem de inserir um país." : errosEmail.textContent = "";
+    país.validity.valid ? erroPaís.textContent = "" : mostrarErros();
 });
 
 cp.addEventListener("input", (e) => {
-    cp.validity.valueMissing ? erroCP.textContent = "Tem de inserir um código postal." : erroCP.textContent = "";
+    cp.validity.valid ? erroCP.textContent = "" : mostrarErros();
 });
 
 pass.addEventListener("input", (e) => {
-    if(pass.validity.valueMissing) {
-        erroPass.textContent = "Tem de inserir uma palavra-passe.";
-    } else if(pass.validity.tooShort) {
-        erroPass.textContent = "A palavra-passe tem de ter 8 caracteres no mínimo.";
-    } else {
-        erroPass.textContent = "";
-    }
+    /*   if(pass.validity.valueMissing) {
+          erroPass.textContent = "Tem de inserir uma palavra-passe.";
+      } else if(pass.validity.tooShort) {
+          erroPass.textContent = "A palavra-passe tem de ter 8 caracteres no mínimo.";
+      } else {
+          erroPass.textContent = "";
+      } */
 })
 
 
 formulário.addEventListener("submit", (e) => {
-    if(pass.value !== passConfirm.value) {
-        erroPassConfirm.textContent = "As palavras-passe não são iguais.";
-        e.preventDefault();
-    } else {
-        
-    }
+    /*  if(pass.value !== passConfirm.value) {
+         erroPassConfirm.textContent = "As palavras-passe não são iguais.";
+         e.preventDefault();
+     } else if() {
+         
+     } */
 })
+
+
+const mostrarErros = () => {
+    if (email.validity.valueMissing) {
+        errosEmail.textContent = "Tem de inserir um enderenço electrónico."
+    } else if (email.validity.typeMismatch) {
+        errosEmail.textContent = "O enderenço electrónico inserido não é válido.";
+    } else if (país.validity.valueMissing) {
+        erroPaís.textContent = "Tem de inserir um país.";
+    } else if (cp.validity.valueMissing) {
+        erroCP.textContent = "Tem de inserir um código postal";
+    }
+}
 
